@@ -1,8 +1,10 @@
 package chap03.main;
 
 import chap03.assembler.Assembler;
+import chap03.config.AppCtx;
 import chap03.spring.ChangePasswordService;
 import chap03.spring.DuplicateMemberException;
+import chap03.spring.MemberListPrinter;
 import chap03.spring.MemberNotFoundException;
 import chap03.spring.MemberRegisterService;
 import chap03.spring.RegisterRequest;
@@ -11,14 +13,17 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MainForSpring {
     private static ApplicationContext ctx = null;
     public static void main(String[] args) throws IOException {
+        ctx = new AnnotationConfigApplicationContext(AppCtx.class);
+
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         while (true) {
-            System.out.println("명령어를 입력하세요: ");
+            System.out.println("명령어를 입력하세요:");
             String command = reader.readLine();
             if (command.equalsIgnoreCase("exit")) {
                 System.out.println("종료합니다.");
@@ -30,11 +35,13 @@ public class MainForSpring {
             } else if (command.startsWith("change ")) {
                 processChangeCommand(command.split(" "));
                 continue;
+            } else if (command.equals("list")) {
+                processListCommand();
+                continue;
             }
             printHelp();
         }
     }
-    private static Assembler assembler = new Assembler();
 
     private static void processNewCommand(String[] arg) {
         if (arg.length != 5) {
@@ -84,5 +91,10 @@ public class MainForSpring {
         System.out.println("new 이메일 이름 암호 암호확인");
         System.out.println("change 이메일 현재비번 변경비번");
         System.out.println();
+    }
+
+    private static void processListCommand() {
+        MemberListPrinter listPrinter = ctx.getBean("listPrinter", MemberListPrinter.class);
+        listPrinter.printAll();
     }
 }
