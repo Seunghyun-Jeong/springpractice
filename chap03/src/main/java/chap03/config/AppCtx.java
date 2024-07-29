@@ -47,6 +47,7 @@ public class AppCtx {
         return infoPrinter;
     }
 
+    @Bean
     public VersionPrinter versionPrinter() {
         VersionPrinter versionPrinter = new VersionPrinter();
         versionPrinter.setMajorVersion(5);
