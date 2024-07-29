@@ -1,12 +1,12 @@
 package chap03.config;
 
 import chap03.spring.ChangePasswordService;
-import chap03.spring.Member;
 import chap03.spring.MemberDao;
 import chap03.spring.MemberInfoPrinter;
 import chap03.spring.MemberListPrinter;
 import chap03.spring.MemberPrinter;
 import chap03.spring.MemberRegisterService;
+import chap03.spring.VersionPrinter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -45,5 +45,12 @@ public class AppCtx {
         infoPrinter.setMemberDao(memberDao());
         infoPrinter.setPrinter(memberPrinter());
         return infoPrinter;
+    }
+
+    public VersionPrinter versionPrinter() {
+        VersionPrinter versionPrinter = new VersionPrinter();
+        versionPrinter.setMajorVersion(5);
+        versionPrinter.setMinorVersion(0);
+        return versionPrinter;
     }
 }
