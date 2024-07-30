@@ -1,19 +1,13 @@
-plugins {
-    id 'java'
-}
+apply plugin: 'java'
 
-group = 'chap04'
-version = '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+compileJava.options.encoding = "UTF-8"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-}
-
-test {
-    useJUnitPlatform()
+    implementation 'org.springframework:spring-context:5.0.2.RELEASE'
 }
