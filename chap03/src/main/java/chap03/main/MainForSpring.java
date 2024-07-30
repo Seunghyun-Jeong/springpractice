@@ -1,6 +1,7 @@
 package chap03.main;
 
 import chap03.assembler.Assembler;
+import chap03.config.AppConfImport;
 import chap03.config.AppCtx;
 import chap03.spring.ChangePasswordService;
 import chap03.spring.DuplicateMemberException;
@@ -20,7 +21,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class MainForSpring {
     private static ApplicationContext ctx = null;
     public static void main(String[] args) throws IOException {
-        ctx = new AnnotationConfigApplicationContext(AppCtx.class);
+        ctx = new AnnotationConfigApplicationContext(AppConfImport.class);
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
