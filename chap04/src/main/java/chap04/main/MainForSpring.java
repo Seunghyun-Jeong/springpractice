@@ -1,17 +1,15 @@
-package chap03.main;
+package chap04.main;
 
-import chap03.assembler.Assembler;
-import chap03.config.AppConfImport;
-import chap03.config.AppCtx;
-import chap03.spring.ChangePasswordService;
-import chap03.spring.DuplicateMemberException;
-import chap03.spring.MemberInfoPrinter;
-import chap03.spring.MemberListPrinter;
-import chap03.spring.MemberNotFoundException;
-import chap03.spring.MemberRegisterService;
-import chap03.spring.RegisterRequest;
-import chap03.spring.VersionPrinter;
-import chap03.spring.WrongIdPasswordException;
+import chap04.config.AppCtx;
+import chap04.spring.ChangePasswordService;
+import chap04.spring.DuplicateMemberException;
+import chap04.spring.MemberInfoPrinter;
+import chap04.spring.MemberListPrinter;
+import chap04.spring.MemberNotFoundException;
+import chap04.spring.MemberRegisterService;
+import chap04.spring.RegisterRequest;
+import chap04.spring.VersionPrinter;
+import chap04.spring.WrongIdPasswordException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -21,7 +19,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class MainForSpring {
     private static ApplicationContext ctx = null;
     public static void main(String[] args) throws IOException {
-        ctx = new AnnotationConfigApplicationContext(AppConfImport.class);
+        ctx = new AnnotationConfigApplicationContext(AppCtx.class);
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 

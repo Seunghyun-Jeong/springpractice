@@ -1,12 +1,12 @@
-package chap03.config;
+package chap04.config;
 
-import chap03.spring.ChangePasswordService;
-import chap03.spring.MemberDao;
-import chap03.spring.MemberInfoPrinter;
-import chap03.spring.MemberListPrinter;
-import chap03.spring.MemberPrinter;
-import chap03.spring.MemberRegisterService;
-import chap03.spring.VersionPrinter;
+import chap04.spring.ChangePasswordService;
+import chap04.spring.MemberDao;
+import chap04.spring.MemberInfoPrinter;
+import chap04.spring.MemberListPrinter;
+import chap04.spring.MemberPrinter;
+import chap04.spring.MemberRegisterService;
+import chap04.spring.VersionPrinter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

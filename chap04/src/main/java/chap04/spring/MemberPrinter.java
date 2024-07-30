@@ -1,4 +1,4 @@
-package chap03.spring;
+package chap04.spring;
 
 public class MemberPrinter {
     public void print(Member member) {
