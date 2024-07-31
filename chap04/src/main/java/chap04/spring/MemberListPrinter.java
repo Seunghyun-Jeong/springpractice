@@ -21,7 +21,7 @@ public class MemberListPrinter {
     }
 
     @Autowired
-    public void setMemberPrint(MemberPrinter printer) {
+    public void setMemberPrint(MemberSummaryPrinter printer) {
         this.printer = printer;
     }
 }
