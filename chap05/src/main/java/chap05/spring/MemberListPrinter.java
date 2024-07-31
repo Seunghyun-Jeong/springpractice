@@ -2,7 +2,9 @@ package chap05.spring;
 
 import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component("listPrinter")
 public class MemberListPrinter {
     private MemberDao memberDao;
     private MemberPrinter printer;
@@ -21,7 +23,7 @@ public class MemberListPrinter {
     }
 
     @Autowired
-    public void setMemberPrint(MemberPrinter printer) {
+    public void setMemberPrint(MemberSummaryPrinter printer) {
         this.printer = printer;
     }
 }
