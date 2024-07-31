@@ -1,10 +1,12 @@
 package chap05.spring;
 
+import chap05.config.ManualBean;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.stereotype.Component;
 
+@ManualBean
 @Component
 public class MemberDao {
     private static long nextId = 0;
