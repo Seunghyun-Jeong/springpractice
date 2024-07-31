@@ -6,7 +6,9 @@ import chap04.spring.MemberInfoPrinter;
 import chap04.spring.MemberListPrinter;
 import chap04.spring.MemberPrinter;
 import chap04.spring.MemberRegisterService;
+import chap04.spring.MemberSummaryPrinter;
 import chap04.spring.VersionPrinter;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -28,17 +30,21 @@ public class AppCtx {
     }
 
     @Bean
-    public MemberPrinter memberPrinter() {
+    @Qualifier("printer")
+    public MemberPrinter memberPrinter1() {
         return new MemberPrinter();
     }
 
     @Bean
-    public MemberListPrinter listPrinter() {
-        return new MemberListPrinter();
+    @Qualifier("summartPrinter")
+    public MemberSummaryPrinter memberprinter2() {
+        return new MemberSummaryPrinter();
     }
 
     @Bean
     public MemberInfoPrinter infoPrinter() {
+        MemberInfoPrinter infoPrinter = new MemberInfoPrinter();
+        infoPrinter.setPrinter(memberprinter2());
         return new MemberInfoPrinter();
     }
 
