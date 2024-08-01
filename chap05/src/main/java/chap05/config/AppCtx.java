@@ -3,7 +3,6 @@ package chap05.config;
 import chap05.spring.ChangePasswordService;
 import chap05.spring.MemberDao;
 import chap05.spring.MemberInfoPrinter;
-import chap05.spring.MemberListPrinter;
 import chap05.spring.MemberPrinter;
 import chap05.spring.MemberRegisterService;
 import chap05.spring.MemberSummaryPrinter;
@@ -17,8 +16,9 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = {"chap05.spring"})
 public class AppCtx {
     @Bean
-    public MemberDao memberDao() {
-        return new MemberDao();
+    public MemberDao memberDao2() {
+        MemberDao memberDao = new MemberDao();
+        return memberDao;
     }
 
     @Bean
